@@ -285,13 +285,13 @@ public class MainWindow extends javax.swing.JFrame {
         txtId.setForeground(new java.awt.Color(204, 255, 204));
         txtId.setText("ID");
 
-        tfId.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfId.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
 
         txtName.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
         txtName.setForeground(new java.awt.Color(204, 255, 204));
         txtName.setText("Name");
 
-        tfName.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfName.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         tfName.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         txtGender.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
@@ -313,19 +313,19 @@ public class MainWindow extends javax.swing.JFrame {
         txtEmail.setForeground(new java.awt.Color(204, 255, 204));
         txtEmail.setText("Email");
 
-        tfEmail.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfEmail.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
 
         txtPhone.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
         txtPhone.setForeground(new java.awt.Color(204, 255, 204));
         txtPhone.setText("Phone");
 
-        tfPhone.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfPhone.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
 
         txtAddress.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(204, 255, 204));
         txtAddress.setText("Address");
 
-        tfAddress.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfAddress.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
 
         addBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addBtn.setForeground(new java.awt.Color(102, 102, 0));
@@ -383,6 +383,8 @@ public class MainWindow extends javax.swing.JFrame {
                 logoutBtnActionPerformed(evt);
             }
         });
+
+        dateChooser.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
 
         txtDob.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
         txtDob.setForeground(new java.awt.Color(204, 255, 204));
@@ -506,13 +508,13 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtAddress))
-                .addGap(28, 28, 28)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDob))
                 .addGap(26, 26, 26)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editBtn)
                     .addComponent(addBtn))
@@ -524,7 +526,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logoutBtn)
                     .addComponent(clearBtn))
-                .addGap(32, 32, 32))
+                .addGap(28, 28, 28))
         );
 
         searchPanel.setBackground(new java.awt.Color(0, 153, 102));
@@ -1040,6 +1042,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         gradeInforTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255)));
+        gradeInforTable.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         gradeInforTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1063,6 +1066,12 @@ public class MainWindow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        gradeInforTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        gradeInforTable.setFocusable(false);
+        gradeInforTable.setRowHeight(25);
+        gradeInforTable.setShowGrid(false);
+        gradeInforTable.setShowHorizontalLines(true);
+        gradeInforTable.setShowVerticalLines(true);
         gradeInforTable.getTableHeader().setReorderingAllowed(false);
         gradeInforTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1199,6 +1208,9 @@ public class MainWindow extends javax.swing.JFrame {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, e);
             }
+            if(classComboBox.getSelectedItem().equals(classComboBox1.getSelectedItem())){
+                id.addItem(tfId.getText());
+            }
             tfId.setText("");
             tfName.setText("");
             tfEmail.setText("");
@@ -1286,7 +1298,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         
         int choice = JOptionPane.showConfirmDialog(null, 
-                "Do you seriously want to delete it?", 
+                "After delete student's grade also deleted\nDo you seriously want to delete it?", 
                 "Confirm", 
                 JOptionPane.YES_NO_OPTION);
         if(choice == 0){
@@ -1454,7 +1466,25 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfSearch1KeyReleased
 
     private void searchIcon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchIcon1MouseClicked
-        
+        String query;
+        if(semesterList.getSelectedItem().equals("Semester 1")){
+            query = "SELECT class, idStudent, name, prf192, csi104, cea201, average FROM grade_semester1 WHERE idStudent = ?";
+        }else{
+            query = "SELECT class, idStudent, name, pro192, osg202, nwc203c, average FROM grade_semester2 WHERE idStudent = ?";
+        }
+        try{
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, tfSearch1.getText());
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel)gradeInforTable.getModel();
+            model.setRowCount(0);
+            if(rs.next()){
+                model.addRow(new String[]{rs.getString(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)});
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_searchIcon1MouseClicked
 
     private boolean validId(){
@@ -1607,18 +1637,30 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editBtn1ActionPerformed
 
-    private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
-        int choice = JOptionPane.showConfirmDialog(null, 
-                "Do you seriously want to delete it?", 
-                "Confirm", 
-                JOptionPane.YES_NO_OPTION);
-        if(choice == 0){
+    private void deleteScore(String tab){
+        if(tab.equals("student")){
+            String query;
+            query = "DELETE FROM grade_semester1 WHERE idStudent = ?; DELETE FROM grade_semester2 WHERE idStudent = ?";
+            DefaultTableModel model = (DefaultTableModel)inforStudentTabel.getModel();
+            int selected = inforStudentTabel.getSelectedRow();
+            try{
+                PreparedStatement ps = conn.prepareStatement(query);
+                ps.setString(1, model.getValueAt(selected, 0).toString());
+                ps.setString(2, model.getValueAt(selected, 0).toString());
+                ps.executeUpdate();
+                semesterList.setSelectedIndex(0);
+                init_score("grade_semester1");
+                table_load();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "You must select a row need to delete!");
+            } 
+        }else{
             String query, semester;
             if(semesterList.getSelectedItem().equals("Semester 1")){
                 query = "DELETE FROM grade_semester1 WHERE idStudent = ?";
                 semester = "grade_semester1";
             }else{
-                query = "DELETE FROM grade_semester1 WHERE idStudent = ?";
+                query = "DELETE FROM grade_semester2 WHERE idStudent = ?";
                 semester = "grade_semester2";
             }
             DefaultTableModel model = (DefaultTableModel)gradeInforTable.getModel();
@@ -1630,7 +1672,17 @@ public class MainWindow extends javax.swing.JFrame {
                 init_score(semester);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, "You must select a row need to delete!");
-            }
+            }     
+        }
+    }
+    
+    private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
+        int choice = JOptionPane.showConfirmDialog(null, 
+                "Do you seriously want to delete it?", 
+                "Confirm", 
+                JOptionPane.YES_NO_OPTION);
+        if(choice == 0){
+            deleteScore("score");
             JOptionPane.showMessageDialog(null, "   Deleted successfully!");
         } 
     }//GEN-LAST:event_deleteBtn1ActionPerformed
@@ -1652,9 +1704,9 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_printBtn1ActionPerformed
 
-    private void clearBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtn1ActionPerformed
-        gradeInforTable.getSelectionModel().clearSelection();
-        classComboBox1.setSelectedIndex(0);
+    private void clear(){
+       gradeInforTable.getSelectionModel().clearSelection();
+        classComboBox1.setSelectedItem(classList.getSelectedItem());
         classComboBox1.setEnabled(true);
         id.setSelectedIndex(0);
         id.setEnabled(true);
@@ -1663,7 +1715,11 @@ public class MainWindow extends javax.swing.JFrame {
         tfScore3.setText("");
         addBtn1.setEnabled(true);
         editBtn1.setEnabled(false);
-        deleteBtn1.setEnabled(false);
+        deleteBtn1.setEnabled(false); 
+    }
+    
+    private void clearBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtn1ActionPerformed
+        clear();
     }//GEN-LAST:event_clearBtn1ActionPerformed
 
     private void setIdStudentOfClass(){
@@ -1710,7 +1766,9 @@ public class MainWindow extends javax.swing.JFrame {
             semesterChooser.setText("Semester 2");
             init_score("grade_semester2");
         }
+        classList.setSelectedIndex(0);
         tfSearch1.setText("");
+        clear();
     }//GEN-LAST:event_semesterListActionPerformed
 
     private void tfScore3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfScore3KeyReleased
@@ -1773,6 +1831,8 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         tfSearch1.setText("");
+        classComboBox1.setSelectedItem(classList.getSelectedItem());
+        classComboBox1.setEnabled(false);
     }//GEN-LAST:event_classListActionPerformed
 
     /**
