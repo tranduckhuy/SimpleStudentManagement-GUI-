@@ -1497,6 +1497,12 @@
                             <StringItem index="3" value="SE4"/>
                           </StringArray>
                         </Property>
+                        <Property name="selectedIndex" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="-1" type="code"/>
+                        </Property>
+                        <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="null" type="code"/>
+                        </Property>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>

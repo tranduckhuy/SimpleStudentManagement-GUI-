@@ -34,7 +34,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void init(){
-        String query = "SELECT idStudent, name, gender, dob, class, email, phone, address FROM student";
+        String query = "SELECT studentId, name, gender, dob, class, email, phone, address FROM student";
         try{        
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
@@ -60,12 +60,12 @@ public class MainWindow extends javax.swing.JFrame {
                 gradeInforTable.getColumnModel().getColumn(3).setHeaderValue("PRF192");
                 gradeInforTable.getColumnModel().getColumn(4).setHeaderValue("CSI104");
                 gradeInforTable.getColumnModel().getColumn(5).setHeaderValue("CEA201");
-                query = "SELECT class, idStudent, name, prf192, csi104, cea201, average FROM grade_semester1";
+                query = "SELECT class, studentId, name, prf192, csi104, cea201, average FROM grade_semester1";
             }else{
                 Course1.setText("PRO192");
                 Course2.setText("OSG202");
                 Course3.setText("NWC203c");
-                query = "SELECT class, idStudent, name, pro192, osg202, nwc203c, average FROM grade_semester2";
+                query = "SELECT class, studentId, name, pro192, osg202, nwc203c, average FROM grade_semester2";
                 gradeInforTable.getColumnModel().getColumn(3).setHeaderValue("PRO192");
                 gradeInforTable.getColumnModel().getColumn(4).setHeaderValue("OSG202");
                 gradeInforTable.getColumnModel().getColumn(5).setHeaderValue("NWC203c");
@@ -88,7 +88,7 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "     Student's id is empty");
             return false;
         }else{
-            String query = "SELECT * FROM student WHERE idStudent = ?";
+            String query = "SELECT * FROM student WHERE studentId = ?";
             try {
                 PreparedStatement ps = conn.prepareStatement(query);
                 ps.setString(1, tfId.getText());
@@ -168,7 +168,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
     
     private void table_load(){
-        String query = "SELECT idStudent, name, gender, dob, class, email, phone, address FROM student";
+        String query = "SELECT studentId, name, gender, dob, class, email, phone, address FROM student";
         try{        
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
@@ -982,6 +982,8 @@ public class MainWindow extends javax.swing.JFrame {
         classList.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         classList.setForeground(new java.awt.Color(0, 153, 51));
         classList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SE1", "SE2", "SE3", "SE4" }));
+        classList.setSelectedIndex(-1);
+        classList.setSelectedItem(null);
         classList.setFocusable(false);
         classList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1222,25 +1224,33 @@ public class MainWindow extends javax.swing.JFrame {
         
     }//GEN-LAST:event_addBtnActionPerformed
 
-    private int getId(){
-        int id = 0;
-        String query = "SELECT id FROM student WHERE idStudent = ?";
-        PreparedStatement ps;
-        try {
-            DefaultTableModel model = (DefaultTableModel)inforStudentTabel.getModel();
-            int selected = inforStudentTabel.getSelectedRow();
-            String idStudent = model.getValueAt(selected, 0).toString();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, idStudent);
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                id = rs.getInt(1);
+    private void changeInforByEditingFromStudentTab(String preStudentId){
+        String query[] = {"UPDATE grade_semester1 SET class = ?, studentId = ?, name = ? WHERE studentId = ?", "UPDATE grade_semester2 SET class = ?, studentId = ?, name = ? WHERE studentId = ?"};
+        try{
+            for(String i: query){
+                PreparedStatement ps = conn.prepareStatement(i);
+                ps.setString(1, classComboBox.getSelectedItem().toString());
+                ps.setString(2, tfId.getText());
+                ps.setString(3, tfName.getText());
+                ps.setString(4, preStudentId);
+                ps.executeUpdate();
+                DefaultTableModel model = (DefaultTableModel)gradeInforTable.getModel();
+                model.setRowCount(0);
+                if(semesterList.getSelectedItem().equals("Semester 1")){
+                    semesterChooser.setText("Semester 1");
+                    init_score("grade_semester1");
+                    classList.setSelectedIndex(-1);
+                }else{
+                    semesterChooser.setText("Semester 2");
+                    init_score("grade_semester2");
+                    classList.setSelectedIndex(-1);
+                }
             }
-        } catch (Exception e) {
+        }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-        return id;
-    }    
+    }
+    
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         
         if(validInfor("edit")){
@@ -1249,12 +1259,13 @@ public class MainWindow extends javax.swing.JFrame {
                 "Confirm", 
                 JOptionPane.YES_NO_OPTION);
             if(choice == 0){
-                int id = getId();
-                String query = "UPDATE student SET idStudent = ?, name = ?, gender = ?, dob = ?, class = ?, email = ?, phone = ?, address = ? "
-                        + "where id = ?";
+                int selected = inforStudentTabel.getSelectedRow();
+                DefaultTableModel model = (DefaultTableModel)inforStudentTabel.getModel();
+                String studentId = model.getValueAt(selected, 0).toString();
+                String query = "UPDATE student SET studentId = ?, name = ?, gender = ?, dob = ?, class = ?, email = ?, phone = ?, address = ? "
+                        + "WHERE studentId = ?";
                 try{
                     PreparedStatement ps = conn.prepareStatement(query);
-
                     ps.setString(1, tfId.getText());
                     ps.setString(2, tfName.getText());
                     // get Text from selected button in buttonGroup  
@@ -1273,11 +1284,11 @@ public class MainWindow extends javax.swing.JFrame {
                     ps.setString(6, tfEmail.getText());
                     ps.setString(7, tfPhone.getText());
                     ps.setString(8, tfAddress.getText());
-                    ps.setInt(9, id);
+                    ps.setString(9, studentId);
                     ps.executeUpdate();
-                    DefaultTableModel model = (DefaultTableModel)inforStudentTabel.getModel();
                     model.setRowCount(0);
-                    table_load();      
+                    table_load();
+                    changeInforByEditingFromStudentTab(studentId);
                 }catch(Exception e){
                     JOptionPane.showMessageDialog(null, e);
                 }
@@ -1302,7 +1313,7 @@ public class MainWindow extends javax.swing.JFrame {
                 "Confirm", 
                 JOptionPane.YES_NO_OPTION);
         if(choice == 0){
-            String query = "DELETE FROM student WHERE idStudent = ?";
+            String query = "DELETE FROM student WHERE studentId = ?";
             DefaultTableModel model = (DefaultTableModel)inforStudentTabel.getModel();
             int selected = inforStudentTabel.getSelectedRow();
             try{
@@ -1340,7 +1351,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBtnActionPerformed
 
     private void sortBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortBtnActionPerformed
-        String query = "SELECT idStudent, name, gender, dob, class, email, phone, address FROM student ORDER BY idStudent";
+        String query = "SELECT studentId, name, gender, dob, class, email, phone, address FROM student ORDER BY studentId";
         try{        
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
@@ -1396,7 +1407,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void tfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSearchKeyReleased
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            String query = "SELECT idStudent, name, gender, dob, class, email, phone, address FROM student WHERE idStudent = ?";
+            String query = "SELECT studentId, name, gender, dob, class, email, phone, address FROM student WHERE studentId = ?";
             try{        
                 PreparedStatement ps = conn.prepareStatement(query);
                 ps.setString(1, tfSearch.getText());
@@ -1414,7 +1425,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfSearchKeyReleased
 
     private void searchIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchIconMouseClicked
-        String query = "SELECT idStudent, name, gender, dob, class, email, phone, address FROM student WHERE idStudent = ?";
+        String query = "SELECT studentId, name, gender, dob, class, email, phone, address FROM student WHERE studentId = ?";
         try{        
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, tfSearch.getText());
@@ -1445,9 +1456,9 @@ public class MainWindow extends javax.swing.JFrame {
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             String query;
             if(semesterList.getSelectedItem().equals("Semester 1")){
-                query = "SELECT class, idStudent, name, prf192, csi104, cea201, average FROM grade_semester1 WHERE idStudent = ?";
+                query = "SELECT class, studentId, name, prf192, csi104, cea201, average FROM grade_semester1 WHERE studentId = ?";
             }else{
-                query = "SELECT class, idStudent, name, pro192, osg202, nwc203c, average FROM grade_semester2 WHERE idStudent = ?";
+                query = "SELECT class, studentId, name, pro192, osg202, nwc203c, average FROM grade_semester2 WHERE studentId = ?";
             }
             try{
                 PreparedStatement ps = conn.prepareStatement(query);
@@ -1468,9 +1479,9 @@ public class MainWindow extends javax.swing.JFrame {
     private void searchIcon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchIcon1MouseClicked
         String query;
         if(semesterList.getSelectedItem().equals("Semester 1")){
-            query = "SELECT class, idStudent, name, prf192, csi104, cea201, average FROM grade_semester1 WHERE idStudent = ?";
+            query = "SELECT class, studentId, name, prf192, csi104, cea201, average FROM grade_semester1 WHERE studentId = ?";
         }else{
-            query = "SELECT class, idStudent, name, pro192, osg202, nwc203c, average FROM grade_semester2 WHERE idStudent = ?";
+            query = "SELECT class, studentId, name, pro192, osg202, nwc203c, average FROM grade_semester2 WHERE studentId = ?";
         }
         try{
             PreparedStatement ps = conn.prepareStatement(query);
@@ -1490,9 +1501,9 @@ public class MainWindow extends javax.swing.JFrame {
     private boolean validId(){
         String query;
         if(semesterList.getSelectedItem().equals("Semester 1")){
-            query = "SELECT * FROM grade_semester1 WHERE idStudent = ?";
+            query = "SELECT * FROM grade_semester1 WHERE studentId = ?";
         }else{
-            query = "SELECT * FROM grade_semester2 WHERE idStudent = ?";
+            query = "SELECT * FROM grade_semester2 WHERE studentId = ?";
         }
         try{
             PreparedStatement ps = conn.prepareStatement(query);
@@ -1546,7 +1557,7 @@ public class MainWindow extends javax.swing.JFrame {
     
     private String getNameFromId(){
         String name = null;
-        String query = "SELECT name FROM student WHERE idStudent = ?";
+        String query = "SELECT name FROM student WHERE studentId = ?";
         try{
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, id.getSelectedItem().toString());
@@ -1592,6 +1603,9 @@ public class MainWindow extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e);
                 }
                 JOptionPane.showMessageDialog(null, "    Added successfully!");
+                tfScore1.setText("");
+                tfScore2.setText("");
+                tfScore3.setText("");
             }
         }else{
             JOptionPane.showMessageDialog(null, "Please select the Student's class and ID");
@@ -1603,11 +1617,11 @@ public class MainWindow extends javax.swing.JFrame {
             String query, semester;
             try{
                 if(semesterChooser.getText().equals("Semester 1")){
-                    query = "UPDATE grade_semester1 SET prf192 = ?, csi104 = ?, cea201 = ?, average = ? WHERE idStudent = ?";
+                    query = "UPDATE grade_semester1 SET prf192 = ?, csi104 = ?, cea201 = ?, average = ? WHERE studentId = ?";
                     semester = "grade_semester1";
                     
                 }else{
-                    query = "UPDATE grade_semester2 SET pro192 = ?, osg202 = ?, nwc203c = ?, average = ? WHERE idStudent = ?";
+                    query = "UPDATE grade_semester2 SET pro192 = ?, osg202 = ?, nwc203c = ?, average = ? WHERE studentId = ?";
                     semester = "grade_semester2";
                 }
                 try{
@@ -1640,7 +1654,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void deleteScore(String tab){
         if(tab.equals("student")){
             String query;
-            query = "DELETE FROM grade_semester1 WHERE idStudent = ?; DELETE FROM grade_semester2 WHERE idStudent = ?";
+            query = "DELETE FROM grade_semester1 WHERE studentId = ?; DELETE FROM grade_semester2 WHERE studentId = ?";
             DefaultTableModel model = (DefaultTableModel)inforStudentTabel.getModel();
             int selected = inforStudentTabel.getSelectedRow();
             try{
@@ -1657,10 +1671,10 @@ public class MainWindow extends javax.swing.JFrame {
         }else{
             String query, semester;
             if(semesterList.getSelectedItem().equals("Semester 1")){
-                query = "DELETE FROM grade_semester1 WHERE idStudent = ?";
+                query = "DELETE FROM grade_semester1 WHERE studentId = ?";
                 semester = "grade_semester1";
             }else{
-                query = "DELETE FROM grade_semester2 WHERE idStudent = ?";
+                query = "DELETE FROM grade_semester2 WHERE studentId = ?";
                 semester = "grade_semester2";
             }
             DefaultTableModel model = (DefaultTableModel)gradeInforTable.getModel();
@@ -1706,9 +1720,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void clear(){
        gradeInforTable.getSelectionModel().clearSelection();
-        classComboBox1.setSelectedItem(classList.getSelectedItem());
+        if(classList.getSelectedIndex() != -1){
+            classComboBox1.setSelectedItem(classList.getSelectedItem());
+            id.setSelectedIndex(0);
+        }else{
+            classComboBox1.setSelectedIndex(0);
+            id.setSelectedIndex(0);
+        }
         classComboBox1.setEnabled(true);
-        id.setSelectedIndex(0);
         id.setEnabled(true);
         tfScore1.setText("");
         tfScore2.setText("");
@@ -1724,7 +1743,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void setIdStudentOfClass(){
         id.removeAllItems();
-        String query = "SELECT idStudent FROM student WHERE class = ?";
+        String query = "SELECT studentId FROM student WHERE class = ?";
         try{
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, classComboBox1.getSelectedItem().toString());
@@ -1758,6 +1777,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_gradeInforTableMouseClicked
 
     private void semesterListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semesterListActionPerformed
+        if(classList != null){
+            classList.setSelectedIndex(-1);
+            classList.setSelectedItem(null);
+        }
         if(semesterList.getSelectedItem().equals("Semester 1")){
             semesterChooser.setText("Semester 1");
             init_score("grade_semester1");
@@ -1766,7 +1789,7 @@ public class MainWindow extends javax.swing.JFrame {
             semesterChooser.setText("Semester 2");
             init_score("grade_semester2");
         }
-        classList.setSelectedIndex(0);
+        classList.setSelectedIndex(-1);
         tfSearch1.setText("");
         clear();
     }//GEN-LAST:event_semesterListActionPerformed
@@ -1811,28 +1834,30 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfScore3KeyReleased
 
     private void classListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classListActionPerformed
-        String query;
-        if(semesterList.getSelectedItem().equals("Semester 1")){
-            query = "SELECT class, idStudent, name, prf192, csi104, cea201, average FROM grade_semester1 WHERE class = ?";
-        }else{
-            query = "SELECT class, idStudent, name, pro192, osg202, nwc203c, average FROM grade_semester2 WHERE class = ?";
-        }
-        try{
-            PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, classList.getSelectedItem().toString());
-            ResultSet rs = ps.executeQuery();
-            DefaultTableModel model = (DefaultTableModel)gradeInforTable.getModel();
-            model.setRowCount(0);
-            while(rs.next()){
-                model.addRow(new String[]{rs.getString(1), rs.getString(2), rs.getString(3),
-                    rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)});
+        if(classList.getSelectedItem() != null){
+            String query;
+            if(semesterList.getSelectedItem().equals("Semester 1")){
+                query = "SELECT class, studentId, name, prf192, csi104, cea201, average FROM grade_semester1 WHERE class = ?";
+            }else{
+                query = "SELECT class, studentId, name, pro192, osg202, nwc203c, average FROM grade_semester2 WHERE class = ?";
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            try{
+                PreparedStatement ps = conn.prepareStatement(query);
+                ps.setString(1, classList.getSelectedItem().toString());
+                ResultSet rs = ps.executeQuery();
+                DefaultTableModel model = (DefaultTableModel)gradeInforTable.getModel();
+                model.setRowCount(0);
+                while(rs.next()){
+                    model.addRow(new String[]{rs.getString(1), rs.getString(2), rs.getString(3),
+                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)});
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+            tfSearch1.setText("");
+            classComboBox1.setSelectedItem(classList.getSelectedItem());
+            classComboBox1.setEnabled(false);
         }
-        tfSearch1.setText("");
-        classComboBox1.setSelectedItem(classList.getSelectedItem());
-        classComboBox1.setEnabled(false);
     }//GEN-LAST:event_classListActionPerformed
 
     /**
