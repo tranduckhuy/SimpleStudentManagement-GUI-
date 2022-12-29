@@ -6,13 +6,13 @@ import javax.swing.JOptionPane;
 
 public class ConnectDB {
     public Connection getConnection(){
-        Connection conn = null;
+        Connection conn;
         try{
             String user = "root";
             String pass = "duchuy2003";
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/connectdb";
-            conn = DriverManager.getConnection(url, user, pass);
+            String URL = "jdbc:mysql://localhost:3306/connectdb";
+            conn = DriverManager.getConnection(URL, user, pass);
             if(conn != null){
                 return conn;
             }

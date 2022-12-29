@@ -184,7 +184,7 @@
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="classComboBox" min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Component id="classComboBoxStudentTab" min="-2" pref="57" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -198,15 +198,15 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="deleteBtn" max="32767" attributes="0"/>
-                                          <Component id="addBtn" max="32767" attributes="0"/>
-                                          <Component id="clearBtn" max="32767" attributes="0"/>
+                                          <Component id="deleteBtnStudentTab" max="32767" attributes="0"/>
+                                          <Component id="addBtnStudentTab" max="32767" attributes="0"/>
+                                          <Component id="clearBtnStudentTab" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="logoutBtn" max="32767" attributes="0"/>
-                                          <Component id="printBtn" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="editBtn" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="printBtnStudentTab" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="editBtnStudentTab" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   </Group>
@@ -221,7 +221,7 @@
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txtClass" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="classComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="classComboBoxStudentTab" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -263,18 +263,18 @@
                               <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="27" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="editBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editBtnStudentTab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addBtnStudentTab" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="deleteBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="printBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="deleteBtnStudentTab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="printBtnStudentTab" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="logoutBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="clearBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="clearBtnStudentTab" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
@@ -411,7 +411,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addBtn">
+                    <Component class="javax.swing.JButton" name="addBtnStudentTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -426,10 +426,10 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBtnActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBtnStudentTabActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="editBtn">
+                    <Component class="javax.swing.JButton" name="editBtnStudentTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -445,10 +445,10 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBtnActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBtnStudentTabActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="deleteBtn">
+                    <Component class="javax.swing.JButton" name="deleteBtnStudentTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -464,10 +464,10 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBtnActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBtnStudentTabActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="printBtn">
+                    <Component class="javax.swing.JButton" name="printBtnStudentTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -482,7 +482,7 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printBtnActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printBtnStudentTabActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="logoutBtn">
@@ -532,7 +532,7 @@
                         <Property name="text" type="java.lang.String" value="Class"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="classComboBox">
+                    <Component class="javax.swing.JComboBox" name="classComboBoxStudentTab">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="99" red="33" type="rgb"/>
@@ -574,7 +574,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="clearBtn">
+                    <Component class="javax.swing.JButton" name="clearBtnStudentTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -589,7 +589,7 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearBtnActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearBtnStudentTabActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -617,7 +617,7 @@
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="sortBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="refreshBtn" min="-2" max="-2" attributes="0"/>
+                              <Component id="refreshBtnStudentTab" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="60" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -638,7 +638,7 @@
                                               <Component id="searchIcon" min="-2" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="sortBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="refreshBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="refreshBtnStudentTab" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jSeparator1" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -666,7 +666,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sortBtnActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="refreshBtn">
+                    <Component class="javax.swing.JButton" name="refreshBtnStudentTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -678,7 +678,7 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshBtnActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshBtnStudentTabActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="tfSearch">
@@ -879,7 +879,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                                      <Component id="clearBtn1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clearBtnCourseTab" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
@@ -891,20 +891,20 @@
                                               </Group>
                                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="classComboBox1" min="-2" pref="61" max="-2" attributes="0"/>
+                                                  <Component id="classComboBoxCourseTab" min="-2" pref="61" max="-2" attributes="0"/>
                                                   <Component id="id" min="-2" pref="115" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jSeparator3" min="-2" pref="201" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="deleteBtn1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="addBtn1" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                                                  <Component id="deleteBtnCourseTab" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="addBtnCourseTab" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="editBtn1" max="32767" attributes="0"/>
-                                                  <Component id="printBtn1" max="32767" attributes="0"/>
+                                                  <Component id="editBtnCourseTab" max="32767" attributes="0"/>
+                                                  <Component id="printBtnCourseTab" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -958,7 +958,7 @@
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txtClass1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="classComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="classComboBoxCourseTab" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -999,16 +999,16 @@
                               <Component id="jSeparator3" min="-2" pref="9" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="addBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addBtnCourseTab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editBtnCourseTab" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="printBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="deleteBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="printBtnCourseTab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="deleteBtnCourseTab" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="clearBtn1" min="-2" max="-2" attributes="0"/>
+                              <Component id="clearBtnCourseTab" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="21" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1123,7 +1123,7 @@
                         <Property name="text" type="java.lang.String" value="Class"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="classComboBox1">
+                    <Component class="javax.swing.JComboBox" name="classComboBoxCourseTab">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="99" green="cc" red="0" type="rgb"/>
@@ -1158,7 +1158,7 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="classComboBox1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="classComboBoxCourseTabActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1191,7 +1191,7 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addBtn1">
+                    <Component class="javax.swing.JButton" name="addBtnCourseTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -1206,10 +1206,10 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBtn1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBtnCourseTabActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="editBtn1">
+                    <Component class="javax.swing.JButton" name="editBtnCourseTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -1225,10 +1225,10 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBtn1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editBtnCourseTabActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="deleteBtn1">
+                    <Component class="javax.swing.JButton" name="deleteBtnCourseTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -1244,10 +1244,10 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBtn1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBtnCourseTabActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="printBtn1">
+                    <Component class="javax.swing.JButton" name="printBtnCourseTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -1262,10 +1262,10 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printBtn1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printBtnCourseTabActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="clearBtn1">
+                    <Component class="javax.swing.JButton" name="clearBtnCourseTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -1280,7 +1280,7 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearBtn1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearBtnCourseTabActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="tfScore1">
@@ -1376,7 +1376,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="searchIcon1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="refreshBtn1" min="-2" max="-2" attributes="0"/>
+                              <Component id="refreshBtnCourseTab" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="semesterList" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -1400,7 +1400,7 @@
                                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                               <Component id="searchIcon1" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                                  <Component id="refreshBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="refreshBtnCourseTab" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="classList" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="semesterList" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -1415,7 +1415,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="refreshBtn1">
+                    <Component class="javax.swing.JButton" name="refreshBtnCourseTab">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -1427,7 +1427,7 @@
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshBtn1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshBtnCourseTabActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="tfSearch1">

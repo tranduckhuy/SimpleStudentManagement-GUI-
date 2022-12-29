@@ -205,20 +205,20 @@ public class MainWindow extends javax.swing.JFrame {
         tfPhone = new javax.swing.JTextField();
         txtAddress = new javax.swing.JLabel();
         tfAddress = new javax.swing.JTextField();
-        addBtn = new javax.swing.JButton();
-        editBtn = new javax.swing.JButton();
-        deleteBtn = new javax.swing.JButton();
-        printBtn = new javax.swing.JButton();
+        addBtnStudentTab = new javax.swing.JButton();
+        editBtnStudentTab = new javax.swing.JButton();
+        deleteBtnStudentTab = new javax.swing.JButton();
+        printBtnStudentTab = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
         dateChooser = new com.toedter.calendar.JDateChooser();
         txtDob = new javax.swing.JLabel();
         txtClass = new javax.swing.JLabel();
-        classComboBox = new javax.swing.JComboBox<>();
+        classComboBoxStudentTab = new javax.swing.JComboBox<>();
         jSeparator2 = new javax.swing.JSeparator();
-        clearBtn = new javax.swing.JButton();
+        clearBtnStudentTab = new javax.swing.JButton();
         searchPanel = new javax.swing.JPanel();
         sortBtn = new javax.swing.JButton();
-        refreshBtn = new javax.swing.JButton();
+        refreshBtnStudentTab = new javax.swing.JButton();
         tfSearch = new javax.swing.JTextField();
         searchLabel = new javax.swing.JLabel();
         searchIcon = new javax.swing.JLabel();
@@ -237,13 +237,13 @@ public class MainWindow extends javax.swing.JFrame {
         txtCourse2 = new javax.swing.JLabel();
         txtGrade3 = new javax.swing.JLabel();
         txtClass1 = new javax.swing.JLabel();
-        classComboBox1 = new javax.swing.JComboBox<>();
+        classComboBoxCourseTab = new javax.swing.JComboBox<>();
         id = new javax.swing.JComboBox<>();
-        addBtn1 = new javax.swing.JButton();
-        editBtn1 = new javax.swing.JButton();
-        deleteBtn1 = new javax.swing.JButton();
-        printBtn1 = new javax.swing.JButton();
-        clearBtn1 = new javax.swing.JButton();
+        addBtnCourseTab = new javax.swing.JButton();
+        editBtnCourseTab = new javax.swing.JButton();
+        deleteBtnCourseTab = new javax.swing.JButton();
+        printBtnCourseTab = new javax.swing.JButton();
+        clearBtnCourseTab = new javax.swing.JButton();
         tfScore1 = new javax.swing.JTextField();
         tfScore3 = new javax.swing.JTextField();
         Course1 = new javax.swing.JLabel();
@@ -251,7 +251,7 @@ public class MainWindow extends javax.swing.JFrame {
         Course3 = new javax.swing.JLabel();
         semesterChooser = new javax.swing.JLabel();
         searchPanel1 = new javax.swing.JPanel();
-        refreshBtn1 = new javax.swing.JButton();
+        refreshBtnCourseTab = new javax.swing.JButton();
         tfSearch1 = new javax.swing.JTextField();
         searchLabel1 = new javax.swing.JLabel();
         searchIcon1 = new javax.swing.JLabel();
@@ -327,49 +327,49 @@ public class MainWindow extends javax.swing.JFrame {
 
         tfAddress.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
 
-        addBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        addBtn.setForeground(new java.awt.Color(102, 102, 0));
-        addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
-        addBtn.setText(" Add");
-        addBtn.setFocusable(false);
-        addBtn.addActionListener(new java.awt.event.ActionListener() {
+        addBtnStudentTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addBtnStudentTab.setForeground(new java.awt.Color(102, 102, 0));
+        addBtnStudentTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
+        addBtnStudentTab.setText(" Add");
+        addBtnStudentTab.setFocusable(false);
+        addBtnStudentTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtnActionPerformed(evt);
+                addBtnStudentTabActionPerformed(evt);
             }
         });
 
-        editBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        editBtn.setForeground(new java.awt.Color(102, 102, 0));
-        editBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
-        editBtn.setText("Edit  ");
-        editBtn.setEnabled(false);
-        editBtn.setFocusable(false);
-        editBtn.addActionListener(new java.awt.event.ActionListener() {
+        editBtnStudentTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        editBtnStudentTab.setForeground(new java.awt.Color(102, 102, 0));
+        editBtnStudentTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
+        editBtnStudentTab.setText("Edit  ");
+        editBtnStudentTab.setEnabled(false);
+        editBtnStudentTab.setFocusable(false);
+        editBtnStudentTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBtnActionPerformed(evt);
+                editBtnStudentTabActionPerformed(evt);
             }
         });
 
-        deleteBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        deleteBtn.setForeground(new java.awt.Color(102, 102, 0));
-        deleteBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))); // NOI18N
-        deleteBtn.setText("Delete");
-        deleteBtn.setEnabled(false);
-        deleteBtn.setFocusable(false);
-        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+        deleteBtnStudentTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        deleteBtnStudentTab.setForeground(new java.awt.Color(102, 102, 0));
+        deleteBtnStudentTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))); // NOI18N
+        deleteBtnStudentTab.setText("Delete");
+        deleteBtnStudentTab.setEnabled(false);
+        deleteBtnStudentTab.setFocusable(false);
+        deleteBtnStudentTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtnActionPerformed(evt);
+                deleteBtnStudentTabActionPerformed(evt);
             }
         });
 
-        printBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        printBtn.setForeground(new java.awt.Color(102, 102, 0));
-        printBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/print.png"))); // NOI18N
-        printBtn.setText(" Print ");
-        printBtn.setFocusable(false);
-        printBtn.addActionListener(new java.awt.event.ActionListener() {
+        printBtnStudentTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        printBtnStudentTab.setForeground(new java.awt.Color(102, 102, 0));
+        printBtnStudentTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/print.png"))); // NOI18N
+        printBtnStudentTab.setText(" Print ");
+        printBtnStudentTab.setFocusable(false);
+        printBtnStudentTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printBtnActionPerformed(evt);
+                printBtnStudentTabActionPerformed(evt);
             }
         });
 
@@ -394,24 +394,24 @@ public class MainWindow extends javax.swing.JFrame {
         txtClass.setForeground(new java.awt.Color(204, 255, 204));
         txtClass.setText("Class");
 
-        classComboBox.setBackground(new java.awt.Color(51, 153, 255));
-        classComboBox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        classComboBox.setForeground(new java.awt.Color(102, 153, 0));
-        classComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SE1", "SE2", "SE3", "SE4" }));
-        classComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
-        classComboBox.setFocusable(false);
+        classComboBoxStudentTab.setBackground(new java.awt.Color(51, 153, 255));
+        classComboBoxStudentTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        classComboBoxStudentTab.setForeground(new java.awt.Color(102, 153, 0));
+        classComboBoxStudentTab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SE1", "SE2", "SE3", "SE4" }));
+        classComboBoxStudentTab.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        classComboBoxStudentTab.setFocusable(false);
 
         jSeparator2.setBackground(new java.awt.Color(51, 153, 255));
         jSeparator2.setForeground(new java.awt.Color(51, 0, 0));
 
-        clearBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        clearBtn.setForeground(new java.awt.Color(102, 102, 0));
-        clearBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clear.png"))); // NOI18N
-        clearBtn.setText("Clear");
-        clearBtn.setFocusable(false);
-        clearBtn.addActionListener(new java.awt.event.ActionListener() {
+        clearBtnStudentTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        clearBtnStudentTab.setForeground(new java.awt.Color(102, 102, 0));
+        clearBtnStudentTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clear.png"))); // NOI18N
+        clearBtnStudentTab.setText("Clear");
+        clearBtnStudentTab.setFocusable(false);
+        clearBtnStudentTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearBtnActionPerformed(evt);
+                clearBtnStudentTabActionPerformed(evt);
             }
         });
 
@@ -455,7 +455,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(tfId))
                         .addGap(23, 23, 23))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(classComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(classComboBoxStudentTab, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -465,14 +465,14 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(deleteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(addBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(clearBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(deleteBtnStudentTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addBtnStudentTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(clearBtnStudentTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(logoutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(printBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(printBtnStudentTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editBtnStudentTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(7, 7, 7)))
                 .addGap(35, 35, 35))
         );
@@ -482,7 +482,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtClass)
-                    .addComponent(classComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(classComboBoxStudentTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtId)
@@ -516,16 +516,16 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editBtn)
-                    .addComponent(addBtn))
+                    .addComponent(editBtnStudentTab)
+                    .addComponent(addBtnStudentTab))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteBtn)
-                    .addComponent(printBtn))
+                    .addComponent(deleteBtnStudentTab)
+                    .addComponent(printBtnStudentTab))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logoutBtn)
-                    .addComponent(clearBtn))
+                    .addComponent(clearBtnStudentTab))
                 .addGap(28, 28, 28))
         );
 
@@ -541,13 +541,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        refreshBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        refreshBtn.setForeground(new java.awt.Color(0, 153, 0));
-        refreshBtn.setText("Refresh");
-        refreshBtn.setFocusable(false);
-        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+        refreshBtnStudentTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        refreshBtnStudentTab.setForeground(new java.awt.Color(0, 153, 0));
+        refreshBtnStudentTab.setText("Refresh");
+        refreshBtnStudentTab.setFocusable(false);
+        refreshBtnStudentTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshBtnActionPerformed(evt);
+                refreshBtnStudentTabActionPerformed(evt);
             }
         });
 
@@ -592,7 +592,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(sortBtn)
                 .addGap(41, 41, 41)
-                .addComponent(refreshBtn)
+                .addComponent(refreshBtnStudentTab)
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         searchPanelLayout.setVerticalGroup(
@@ -610,7 +610,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(searchIcon)
                                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(sortBtn)
-                                    .addComponent(refreshBtn)))
+                                    .addComponent(refreshBtnStudentTab)))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(3, 3, 3))
         );
@@ -729,17 +729,17 @@ public class MainWindow extends javax.swing.JFrame {
         txtClass1.setForeground(new java.awt.Color(0, 51, 255));
         txtClass1.setText("Class");
 
-        classComboBox1.setBackground(new java.awt.Color(0, 204, 153));
-        classComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        classComboBox1.setForeground(new java.awt.Color(51, 51, 255));
-        classComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SE1", "SE2", "SE3", "SE4" }));
-        classComboBox1.setSelectedIndex(-1);
-        classComboBox1.setSelectedItem(null);
-        classComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255)));
-        classComboBox1.setFocusable(false);
-        classComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        classComboBoxCourseTab.setBackground(new java.awt.Color(0, 204, 153));
+        classComboBoxCourseTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        classComboBoxCourseTab.setForeground(new java.awt.Color(51, 51, 255));
+        classComboBoxCourseTab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SE1", "SE2", "SE3", "SE4" }));
+        classComboBoxCourseTab.setSelectedIndex(-1);
+        classComboBoxCourseTab.setSelectedItem(null);
+        classComboBoxCourseTab.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255)));
+        classComboBoxCourseTab.setFocusable(false);
+        classComboBoxCourseTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                classComboBox1ActionPerformed(evt);
+                classComboBoxCourseTabActionPerformed(evt);
             }
         });
 
@@ -749,60 +749,60 @@ public class MainWindow extends javax.swing.JFrame {
         id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 255)));
         id.setFocusable(false);
 
-        addBtn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        addBtn1.setForeground(new java.awt.Color(102, 102, 0));
-        addBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
-        addBtn1.setText(" Add");
-        addBtn1.setFocusable(false);
-        addBtn1.addActionListener(new java.awt.event.ActionListener() {
+        addBtnCourseTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addBtnCourseTab.setForeground(new java.awt.Color(102, 102, 0));
+        addBtnCourseTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
+        addBtnCourseTab.setText(" Add");
+        addBtnCourseTab.setFocusable(false);
+        addBtnCourseTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtn1ActionPerformed(evt);
+                addBtnCourseTabActionPerformed(evt);
             }
         });
 
-        editBtn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        editBtn1.setForeground(new java.awt.Color(102, 102, 0));
-        editBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
-        editBtn1.setText("Edit  ");
-        editBtn1.setEnabled(false);
-        editBtn1.setFocusable(false);
-        editBtn1.addActionListener(new java.awt.event.ActionListener() {
+        editBtnCourseTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        editBtnCourseTab.setForeground(new java.awt.Color(102, 102, 0));
+        editBtnCourseTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
+        editBtnCourseTab.setText("Edit  ");
+        editBtnCourseTab.setEnabled(false);
+        editBtnCourseTab.setFocusable(false);
+        editBtnCourseTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBtn1ActionPerformed(evt);
+                editBtnCourseTabActionPerformed(evt);
             }
         });
 
-        deleteBtn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        deleteBtn1.setForeground(new java.awt.Color(102, 102, 0));
-        deleteBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))); // NOI18N
-        deleteBtn1.setText("Delete");
-        deleteBtn1.setEnabled(false);
-        deleteBtn1.setFocusable(false);
-        deleteBtn1.addActionListener(new java.awt.event.ActionListener() {
+        deleteBtnCourseTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        deleteBtnCourseTab.setForeground(new java.awt.Color(102, 102, 0));
+        deleteBtnCourseTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))); // NOI18N
+        deleteBtnCourseTab.setText("Delete");
+        deleteBtnCourseTab.setEnabled(false);
+        deleteBtnCourseTab.setFocusable(false);
+        deleteBtnCourseTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtn1ActionPerformed(evt);
+                deleteBtnCourseTabActionPerformed(evt);
             }
         });
 
-        printBtn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        printBtn1.setForeground(new java.awt.Color(102, 102, 0));
-        printBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/print.png"))); // NOI18N
-        printBtn1.setText(" Print ");
-        printBtn1.setFocusable(false);
-        printBtn1.addActionListener(new java.awt.event.ActionListener() {
+        printBtnCourseTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        printBtnCourseTab.setForeground(new java.awt.Color(102, 102, 0));
+        printBtnCourseTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/print.png"))); // NOI18N
+        printBtnCourseTab.setText(" Print ");
+        printBtnCourseTab.setFocusable(false);
+        printBtnCourseTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printBtn1ActionPerformed(evt);
+                printBtnCourseTabActionPerformed(evt);
             }
         });
 
-        clearBtn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        clearBtn1.setForeground(new java.awt.Color(102, 102, 0));
-        clearBtn1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clear.png"))); // NOI18N
-        clearBtn1.setText("Clear");
-        clearBtn1.setFocusable(false);
-        clearBtn1.addActionListener(new java.awt.event.ActionListener() {
+        clearBtnCourseTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        clearBtnCourseTab.setForeground(new java.awt.Color(102, 102, 0));
+        clearBtnCourseTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clear.png"))); // NOI18N
+        clearBtnCourseTab.setText("Clear");
+        clearBtnCourseTab.setFocusable(false);
+        clearBtnCourseTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearBtn1ActionPerformed(evt);
+                clearBtnCourseTabActionPerformed(evt);
             }
         });
 
@@ -840,7 +840,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(clearBtn1))
+                        .addComponent(clearBtnCourseTab))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -850,17 +850,17 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(txtId1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(40, 40, 40)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(classComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(classComboBoxCourseTab, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(deleteBtn1)
-                                    .addComponent(addBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(deleteBtnCourseTab)
+                                    .addComponent(addBtnCourseTab, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(editBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(printBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(editBtnCourseTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(printBtnCourseTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(txtScore2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -898,7 +898,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtClass1)
-                    .addComponent(classComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(classComboBoxCourseTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -931,26 +931,26 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addBtn1)
-                    .addComponent(editBtn1))
+                    .addComponent(addBtnCourseTab)
+                    .addComponent(editBtnCourseTab))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(printBtn1)
-                    .addComponent(deleteBtn1))
+                    .addComponent(printBtnCourseTab)
+                    .addComponent(deleteBtnCourseTab))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(clearBtn1)
+                .addComponent(clearBtnCourseTab)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         searchPanel1.setBackground(new java.awt.Color(0, 153, 102));
 
-        refreshBtn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        refreshBtn1.setForeground(new java.awt.Color(0, 153, 51));
-        refreshBtn1.setText("Refresh");
-        refreshBtn1.setFocusable(false);
-        refreshBtn1.addActionListener(new java.awt.event.ActionListener() {
+        refreshBtnCourseTab.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        refreshBtnCourseTab.setForeground(new java.awt.Color(0, 153, 51));
+        refreshBtnCourseTab.setText("Refresh");
+        refreshBtnCourseTab.setFocusable(false);
+        refreshBtnCourseTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshBtn1ActionPerformed(evt);
+                refreshBtnCourseTabActionPerformed(evt);
             }
         });
 
@@ -1015,7 +1015,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(searchIcon1)
                 .addGap(18, 18, 18)
-                .addComponent(refreshBtn1)
+                .addComponent(refreshBtnCourseTab)
                 .addGap(35, 35, 35)
                 .addComponent(semesterList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -1036,7 +1036,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(searchIcon1)
                                 .addGroup(searchPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(refreshBtn1)
+                                    .addComponent(refreshBtnCourseTab)
                                     .addComponent(classList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(semesterList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1174,12 +1174,12 @@ public class MainWindow extends javax.swing.JFrame {
         this.requestFocusInWindow();
     }//GEN-LAST:event_formWindowGainedFocus
 
-    private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
+    private void refreshBtnStudentTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnStudentTabActionPerformed
         table_load();
         tfSearch.setText("");
-    }//GEN-LAST:event_refreshBtnActionPerformed
+    }//GEN-LAST:event_refreshBtnStudentTabActionPerformed
 
-    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+    private void addBtnStudentTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnStudentTabActionPerformed
         
         if(validInfor("add")){
                     
@@ -1201,7 +1201,7 @@ public class MainWindow extends javax.swing.JFrame {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 String date = dateFormat.format(dateChooser.getDate());
                 ps.setString(4, date);
-                ps.setString(5, classComboBox.getSelectedItem().toString());
+                ps.setString(5, classComboBoxStudentTab.getSelectedItem().toString());
                 ps.setString(6, tfEmail.getText());
                 ps.setString(7, tfPhone.getText());
                 ps.setString(8, tfAddress.getText());
@@ -1210,7 +1210,7 @@ public class MainWindow extends javax.swing.JFrame {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, e);
             }
-            if(classComboBox.getSelectedItem().equals(classComboBox1.getSelectedItem())){
+            if(classComboBoxStudentTab.getSelectedItem().equals(classComboBoxCourseTab.getSelectedItem())){
                 id.addItem(tfId.getText());
             }
             tfId.setText("");
@@ -1222,14 +1222,14 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "    Added successfully!");
         }
         
-    }//GEN-LAST:event_addBtnActionPerformed
+    }//GEN-LAST:event_addBtnStudentTabActionPerformed
 
     private void changeInforByEditingFromStudentTab(String preStudentId){
         String query[] = {"UPDATE grade_semester1 SET class = ?, studentId = ?, name = ? WHERE studentId = ?", "UPDATE grade_semester2 SET class = ?, studentId = ?, name = ? WHERE studentId = ?"};
         try{
             for(String i: query){
                 PreparedStatement ps = conn.prepareStatement(i);
-                ps.setString(1, classComboBox.getSelectedItem().toString());
+                ps.setString(1, classComboBoxStudentTab.getSelectedItem().toString());
                 ps.setString(2, tfId.getText());
                 ps.setString(3, tfName.getText());
                 ps.setString(4, preStudentId);
@@ -1251,7 +1251,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
     
-    private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
+    private void editBtnStudentTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnStudentTabActionPerformed
         
         if(validInfor("edit")){
             int choice = JOptionPane.showConfirmDialog(null, 
@@ -1280,7 +1280,7 @@ public class MainWindow extends javax.swing.JFrame {
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                     String date = dateFormat.format(dateChooser.getDate());
                     ps.setString(4, date);
-                    ps.setString(5, classComboBox.getSelectedItem().toString());
+                    ps.setString(5, classComboBoxStudentTab.getSelectedItem().toString());
                     ps.setString(6, tfEmail.getText());
                     ps.setString(7, tfPhone.getText());
                     ps.setString(8, tfAddress.getText());
@@ -1298,13 +1298,13 @@ public class MainWindow extends javax.swing.JFrame {
                 tfPhone.setText("");
                 tfAddress.setText("");
                 dateChooser.setDate(null);
-                addBtn.setEnabled(true);
-                editBtn.setEnabled(false);
-                deleteBtn.setEnabled(false);
+                addBtnStudentTab.setEnabled(true);
+                editBtnStudentTab.setEnabled(false);
+                deleteBtnStudentTab.setEnabled(false);
                 JOptionPane.showMessageDialog(null, "   Edited successfully!");
             }
         }      
-    }//GEN-LAST:event_editBtnActionPerformed
+    }//GEN-LAST:event_editBtnStudentTabActionPerformed
 
     private void deleteStudentGrades(){
         String query[] = {"DELETE FROM grade_semester1 WHERE studentId = ?", "DELETE FROM grade_semester2 WHERE studentId = ?"};
@@ -1330,7 +1330,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
     
-    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+    private void deleteBtnStudentTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnStudentTabActionPerformed
         
         int choice = JOptionPane.showConfirmDialog(null, 
                 "After deleting the student's grade will also be deleted\n         Do you seriously want to delete it?", 
@@ -1356,13 +1356,13 @@ public class MainWindow extends javax.swing.JFrame {
             tfPhone.setText("");
             tfAddress.setText("");
             dateChooser.setDate(null);
-            addBtn.setEnabled(true);
-            editBtn.setEnabled(false);
-            deleteBtn.setEnabled(false);
+            addBtnStudentTab.setEnabled(true);
+            editBtnStudentTab.setEnabled(false);
+            deleteBtnStudentTab.setEnabled(false);
         }         
-    }//GEN-LAST:event_deleteBtnActionPerformed
+    }//GEN-LAST:event_deleteBtnStudentTabActionPerformed
 
-    private void printBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtnActionPerformed
+    private void printBtnStudentTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtnStudentTabActionPerformed
         MessageFormat header = new MessageFormat("Students Information");
         MessageFormat footer = new MessageFormat("Page{0, number, integer}");
         
@@ -1372,7 +1372,7 @@ public class MainWindow extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_printBtnActionPerformed
+    }//GEN-LAST:event_printBtnStudentTabActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
         int select = JOptionPane.showConfirmDialog(null, 
@@ -1412,22 +1412,22 @@ public class MainWindow extends javax.swing.JFrame {
             }
             Date date = new SimpleDateFormat("dd-MM-yyyy").parse((String)model.getValueAt(selected, 3));
             dateChooser.setDate(date);
-            classComboBox.setSelectedItem(model.getValueAt(selected, 4));
+            classComboBoxStudentTab.setSelectedItem(model.getValueAt(selected, 4));
             tfEmail.setText(model.getValueAt(selected, 5).toString());
             tfPhone.setText(model.getValueAt(selected, 6).toString());
             tfAddress.setText(model.getValueAt(selected, 7).toString());
         }catch(ParseException e){
             JOptionPane.showMessageDialog(null, e);
         }
-        addBtn.setEnabled(false);
-        editBtn.setEnabled(true);
-        deleteBtn.setEnabled(true);
+        addBtnStudentTab.setEnabled(false);
+        editBtnStudentTab.setEnabled(true);
+        deleteBtnStudentTab.setEnabled(true);
     }//GEN-LAST:event_inforStudentTabelMouseClicked
 
-    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+    private void clearBtnStudentTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnStudentTabActionPerformed
         
-        editBtn.setEnabled(false);
-        addBtn.setEnabled(true);
+        editBtnStudentTab.setEnabled(false);
+        addBtnStudentTab.setEnabled(true);
         inforStudentTabel.getSelectionModel().clearSelection();
         tfId.setText("");
         tfName.setText("");
@@ -1436,7 +1436,7 @@ public class MainWindow extends javax.swing.JFrame {
         tfAddress.setText("");
         dateChooser.setDate(null);
 
-    }//GEN-LAST:event_clearBtnActionPerformed
+    }//GEN-LAST:event_clearBtnStudentTabActionPerformed
 
     private void tfSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSearchKeyReleased
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -1476,14 +1476,14 @@ public class MainWindow extends javax.swing.JFrame {
 
 //  -----------------------------------------COURSE------------------------------------------------------
 
-    private void refreshBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtn1ActionPerformed
+    private void refreshBtnCourseTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnCourseTabActionPerformed
         if(semesterList.getSelectedItem().equals("Semester 1")){
             init_score("grade_semester1");
         }else{
             init_score("grade_semester2");
         }
         tfSearch1.setText("");
-    }//GEN-LAST:event_refreshBtn1ActionPerformed
+    }//GEN-LAST:event_refreshBtnCourseTabActionPerformed
 
     private void tfSearch1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfSearch1KeyReleased
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -1604,8 +1604,8 @@ public class MainWindow extends javax.swing.JFrame {
         return name;
     }       
     
-    private void addBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtn1ActionPerformed
-        if(classComboBox1.getSelectedIndex() != -1){
+    private void addBtnCourseTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnCourseTabActionPerformed
+        if(classComboBoxCourseTab.getSelectedIndex() != -1){
             if(validId() && validGrade()){
                 String query, semester;
                 try{
@@ -1619,7 +1619,7 @@ public class MainWindow extends javax.swing.JFrame {
                     }
                     try{
                         PreparedStatement ps = conn.prepareStatement(query);
-                        ps.setString(1, classComboBox1.getSelectedItem().toString());
+                        ps.setString(1, classComboBoxCourseTab.getSelectedItem().toString());
                         ps.setString(2, id.getSelectedItem().toString());
                         ps.setString(3, getNameFromId());
                         ps.setString(4, tfScore1.getText());
@@ -1643,9 +1643,9 @@ public class MainWindow extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Please select the Student's class and ID");
         }
-    }//GEN-LAST:event_addBtn1ActionPerformed
+    }//GEN-LAST:event_addBtnCourseTabActionPerformed
 
-    private void editBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtn1ActionPerformed
+    private void editBtnCourseTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnCourseTabActionPerformed
         if(validGrade()){
             String query, semester;
             try{
@@ -1672,19 +1672,19 @@ public class MainWindow extends javax.swing.JFrame {
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, e);
             }
-            classComboBox1.setEnabled(true);
+            classComboBoxCourseTab.setEnabled(true);
             id.setEnabled(true);
             tfScore1.setText("");
             tfScore2.setText("");
             tfScore3.setText("");
-            addBtn1.setEnabled(true);
-            editBtn1.setEnabled(false);
-            deleteBtn1.setEnabled(false);
+            addBtnCourseTab.setEnabled(true);
+            editBtnCourseTab.setEnabled(false);
+            deleteBtnCourseTab.setEnabled(false);
             JOptionPane.showMessageDialog(null, "    Edited successfully!");
         }
-    }//GEN-LAST:event_editBtn1ActionPerformed
+    }//GEN-LAST:event_editBtnCourseTabActionPerformed
     
-    private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
+    private void deleteBtnCourseTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnCourseTabActionPerformed
         int choice = JOptionPane.showConfirmDialog(null, 
                 "Do you seriously want to delete it?", 
                 "Confirm", 
@@ -1709,18 +1709,18 @@ public class MainWindow extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }     
             JOptionPane.showMessageDialog(null, "   Deleted successfully!");
-            classComboBox1.setEnabled(true);
+            classComboBoxCourseTab.setEnabled(true);
             id.setEnabled(true);
             tfScore1.setText("");
             tfScore2.setText("");
             tfScore3.setText("");
-            addBtn1.setEnabled(true);
-            editBtn1.setEnabled(false);
-            deleteBtn1.setEnabled(false);
+            addBtnCourseTab.setEnabled(true);
+            editBtnCourseTab.setEnabled(false);
+            deleteBtnCourseTab.setEnabled(false);
         } 
-    }//GEN-LAST:event_deleteBtn1ActionPerformed
+    }//GEN-LAST:event_deleteBtnCourseTabActionPerformed
 
-    private void printBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtn1ActionPerformed
+    private void printBtnCourseTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printBtnCourseTabActionPerformed
         MessageFormat header;
         if(semesterList.getSelectedItem().equals("Semester 1")){
                header = new MessageFormat("Student's 1st semester grades"); 
@@ -1735,37 +1735,37 @@ public class MainWindow extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_printBtn1ActionPerformed
+    }//GEN-LAST:event_printBtnCourseTabActionPerformed
 
     private void clear(){
        gradeInforTable.getSelectionModel().clearSelection();
         if(classList.getSelectedIndex() != -1){
-            classComboBox1.setSelectedItem(classList.getSelectedItem());
+            classComboBoxCourseTab.setSelectedItem(classList.getSelectedItem());
             id.setSelectedIndex(0);
         }else{
-            classComboBox1.setSelectedIndex(0);
+            classComboBoxCourseTab.setSelectedIndex(0);
             id.setSelectedIndex(0);
         }
-        classComboBox1.setEnabled(true);
+        classComboBoxCourseTab.setEnabled(true);
         id.setEnabled(true);
         tfScore1.setText("");
         tfScore2.setText("");
         tfScore3.setText("");
-        addBtn1.setEnabled(true);
-        editBtn1.setEnabled(false);
-        deleteBtn1.setEnabled(false); 
+        addBtnCourseTab.setEnabled(true);
+        editBtnCourseTab.setEnabled(false);
+        deleteBtnCourseTab.setEnabled(false); 
     }
     
-    private void clearBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtn1ActionPerformed
+    private void clearBtnCourseTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnCourseTabActionPerformed
         clear();
-    }//GEN-LAST:event_clearBtn1ActionPerformed
+    }//GEN-LAST:event_clearBtnCourseTabActionPerformed
 
     private void setIdStudentOfClass(){
         id.removeAllItems();
         String query = "SELECT studentId FROM student WHERE class = ? ORDER BY studentId";
         try{
             PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, classComboBox1.getSelectedItem().toString());
+            ps.setString(1, classComboBoxCourseTab.getSelectedItem().toString());
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 id.addItem(rs.getString(1));
@@ -1775,24 +1775,24 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
     
-    private void classComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classComboBox1ActionPerformed
+    private void classComboBoxCourseTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classComboBoxCourseTabActionPerformed
         setIdStudentOfClass();
-    }//GEN-LAST:event_classComboBox1ActionPerformed
+    }//GEN-LAST:event_classComboBoxCourseTabActionPerformed
 
     private void gradeInforTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gradeInforTableMouseClicked
         DefaultTableModel model = (DefaultTableModel)gradeInforTable.getModel();
         int selected = gradeInforTable.getSelectedRow(); 
-        classComboBox1.setSelectedItem(model.getValueAt(selected, 0));
+        classComboBoxCourseTab.setSelectedItem(model.getValueAt(selected, 0));
         setIdStudentOfClass();
         id.setSelectedItem(model.getValueAt(selected, 1));
         tfScore1.setText(model.getValueAt(selected, 3).toString());
         tfScore2.setText(model.getValueAt(selected, 4).toString());
         tfScore3.setText(model.getValueAt(selected, 5).toString());
-        classComboBox1.setEnabled(false);
+        classComboBoxCourseTab.setEnabled(false);
         id.setEnabled(false);
-        addBtn1.setEnabled(false);
-        editBtn1.setEnabled(true);
-        deleteBtn1.setEnabled(true);
+        addBtnCourseTab.setEnabled(false);
+        editBtnCourseTab.setEnabled(true);
+        deleteBtnCourseTab.setEnabled(true);
     }//GEN-LAST:event_gradeInforTableMouseClicked
 
     private void semesterListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semesterListActionPerformed
@@ -1815,7 +1815,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void tfScore3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfScore3KeyReleased
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(classComboBox1.getSelectedIndex() != -1){
+            if(classComboBoxCourseTab.getSelectedIndex() != -1){
                 if(validGrade()){
                     String query, semester;
                     try{
@@ -1829,7 +1829,7 @@ public class MainWindow extends javax.swing.JFrame {
                         }
                         try{
                             PreparedStatement ps = conn.prepareStatement(query);
-                            ps.setString(1, classComboBox1.getSelectedItem().toString());
+                            ps.setString(1, classComboBoxCourseTab.getSelectedItem().toString());
                             ps.setString(2, id.getSelectedItem().toString());
                             ps.setString(3, getNameFromId());
                             ps.setString(4, tfScore1.getText());
@@ -1874,8 +1874,8 @@ public class MainWindow extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
             tfSearch1.setText("");
-            classComboBox1.setSelectedItem(classList.getSelectedItem());
-            classComboBox1.setEnabled(false);
+            classComboBoxCourseTab.setSelectedItem(classList.getSelectedItem());
+            classComboBoxCourseTab.setEnabled(false);
         }
     }//GEN-LAST:event_classListActionPerformed
 
@@ -1919,20 +1919,20 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel Course1;
     private javax.swing.JLabel Course2;
     private javax.swing.JLabel Course3;
-    private javax.swing.JButton addBtn;
-    private javax.swing.JButton addBtn1;
+    private javax.swing.JButton addBtnCourseTab;
+    private javax.swing.JButton addBtnStudentTab;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> classComboBox;
-    private javax.swing.JComboBox<String> classComboBox1;
+    private javax.swing.JComboBox<String> classComboBoxCourseTab;
+    private javax.swing.JComboBox<String> classComboBoxStudentTab;
     private javax.swing.JComboBox<String> classList;
-    private javax.swing.JButton clearBtn;
-    private javax.swing.JButton clearBtn1;
+    private javax.swing.JButton clearBtnCourseTab;
+    private javax.swing.JButton clearBtnStudentTab;
     private javax.swing.JPanel coursePanel;
     private com.toedter.calendar.JDateChooser dateChooser;
-    private javax.swing.JButton deleteBtn;
-    private javax.swing.JButton deleteBtn1;
-    private javax.swing.JButton editBtn;
-    private javax.swing.JButton editBtn1;
+    private javax.swing.JButton deleteBtnCourseTab;
+    private javax.swing.JButton deleteBtnStudentTab;
+    private javax.swing.JButton editBtnCourseTab;
+    private javax.swing.JButton editBtnStudentTab;
     private javax.swing.JRadioButton femaleBtn;
     private javax.swing.JTable gradeInforTable;
     private javax.swing.JLabel headerLabel;
@@ -1950,10 +1950,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton logoutBtn;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JRadioButton maleBtn;
-    private javax.swing.JButton printBtn;
-    private javax.swing.JButton printBtn1;
-    private javax.swing.JButton refreshBtn;
-    private javax.swing.JButton refreshBtn1;
+    private javax.swing.JButton printBtnCourseTab;
+    private javax.swing.JButton printBtnStudentTab;
+    private javax.swing.JButton refreshBtnCourseTab;
+    private javax.swing.JButton refreshBtnStudentTab;
     private javax.swing.JLabel searchIcon;
     private javax.swing.JLabel searchIcon1;
     private javax.swing.JLabel searchLabel;
