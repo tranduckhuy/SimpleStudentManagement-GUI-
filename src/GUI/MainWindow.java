@@ -1306,26 +1306,59 @@ public class MainWindow extends javax.swing.JFrame {
         }      
     }//GEN-LAST:event_editBtnActionPerformed
 
+    private void deleteStudentGrades(){
+        String query[] = {"DELETE FROM grade_semester1 WHERE studentId = ?", "DELETE FROM grade_semester2 WHERE studentId = ?"};
+        try{
+            for(String i: query){
+                PreparedStatement ps = conn.prepareStatement(i);
+                ps.setString(1, tfId.getText());
+                ps.executeUpdate();
+                DefaultTableModel model = (DefaultTableModel)gradeInforTable.getModel();
+                model.setRowCount(0);
+                if(semesterList.getSelectedItem().equals("Semester 1")){
+                    semesterChooser.setText("Semester 1");
+                    init_score("grade_semester1");
+                    classList.setSelectedIndex(-1);
+                }else{
+                    semesterChooser.setText("Semester 2");
+                    init_score("grade_semester2");
+                    classList.setSelectedIndex(-1);
+                }
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         
         int choice = JOptionPane.showConfirmDialog(null, 
-                "After delete student's grade also deleted\nDo you seriously want to delete it?", 
+                "After deleting the student's grade will also be deleted\n         Do you seriously want to delete it?", 
                 "Confirm", 
                 JOptionPane.YES_NO_OPTION);
         if(choice == 0){
             String query = "DELETE FROM student WHERE studentId = ?";
             DefaultTableModel model = (DefaultTableModel)inforStudentTabel.getModel();
-            int selected = inforStudentTabel.getSelectedRow();
             try{
                 PreparedStatement ps = conn.prepareStatement(query);
-                ps.setString(1, model.getValueAt(selected, 0).toString());
+                ps.setString(1, tfId.getText());
                 ps.executeUpdate();
+                model.setRowCount(0);
                 table_load();
-                
+                deleteStudentGrades();
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "You must select a row need to delete!");
+                JOptionPane.showMessageDialog(null, e);
             }
             JOptionPane.showMessageDialog(null, "   Deleted successfully!");
+            tfId.setText("");
+            tfName.setText("");
+            tfEmail.setText("");
+            tfPhone.setText("");
+            tfAddress.setText("");
+            dateChooser.setDate(null);
+            addBtn.setEnabled(true);
+            editBtn.setEnabled(false);
+            deleteBtn.setEnabled(false);
         }         
     }//GEN-LAST:event_deleteBtnActionPerformed
 
@@ -1650,25 +1683,13 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "    Edited successfully!");
         }
     }//GEN-LAST:event_editBtn1ActionPerformed
-
-    private void deleteScore(String tab){
-        if(tab.equals("student")){
-            String query;
-            query = "DELETE FROM grade_semester1 WHERE studentId = ?; DELETE FROM grade_semester2 WHERE studentId = ?";
-            DefaultTableModel model = (DefaultTableModel)inforStudentTabel.getModel();
-            int selected = inforStudentTabel.getSelectedRow();
-            try{
-                PreparedStatement ps = conn.prepareStatement(query);
-                ps.setString(1, model.getValueAt(selected, 0).toString());
-                ps.setString(2, model.getValueAt(selected, 0).toString());
-                ps.executeUpdate();
-                semesterList.setSelectedIndex(0);
-                init_score("grade_semester1");
-                table_load();
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "You must select a row need to delete!");
-            } 
-        }else{
+    
+    private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
+        int choice = JOptionPane.showConfirmDialog(null, 
+                "Do you seriously want to delete it?", 
+                "Confirm", 
+                JOptionPane.YES_NO_OPTION);
+        if(choice == 0){
             String query, semester;
             if(semesterList.getSelectedItem().equals("Semester 1")){
                 query = "DELETE FROM grade_semester1 WHERE studentId = ?";
@@ -1685,19 +1706,17 @@ public class MainWindow extends javax.swing.JFrame {
                 ps.executeUpdate();
                 init_score(semester);
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "You must select a row need to delete!");
+                JOptionPane.showMessageDialog(null, e);
             }     
-        }
-    }
-    
-    private void deleteBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtn1ActionPerformed
-        int choice = JOptionPane.showConfirmDialog(null, 
-                "Do you seriously want to delete it?", 
-                "Confirm", 
-                JOptionPane.YES_NO_OPTION);
-        if(choice == 0){
-            deleteScore("score");
             JOptionPane.showMessageDialog(null, "   Deleted successfully!");
+            classComboBox1.setEnabled(true);
+            id.setEnabled(true);
+            tfScore1.setText("");
+            tfScore2.setText("");
+            tfScore3.setText("");
+            addBtn1.setEnabled(true);
+            editBtn1.setEnabled(false);
+            deleteBtn1.setEnabled(false);
         } 
     }//GEN-LAST:event_deleteBtn1ActionPerformed
 
@@ -1743,7 +1762,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void setIdStudentOfClass(){
         id.removeAllItems();
-        String query = "SELECT studentId FROM student WHERE class = ?";
+        String query = "SELECT studentId FROM student WHERE class = ? ORDER BY studentId";
         try{
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, classComboBox1.getSelectedItem().toString());
