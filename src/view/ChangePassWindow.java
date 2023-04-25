@@ -1,7 +1,6 @@
 package view;
 
 import dao.LoginDAO;
-import dao.UpdateAccountDAO;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -254,9 +253,9 @@ public class ChangePassWindow extends javax.swing.JFrame {
         try {
             if (newPass.equals(confirmPass) && newPass.length() > 4) {
                 LoginDAO ld = new LoginDAO();
-                Account a = (Account) ld.checkLogin(username, password);
+                Account a = ld.checkLogin(username, password);
                 if (a != null) {
-                    UpdateAccountDAO ud = new UpdateAccountDAO();
+                    LoginDAO ud = new LoginDAO();
                     ud.updateAccount(username, newPass);
                     JOptionPane.showMessageDialog(null, "Change password successfully");
                     this.dispose();

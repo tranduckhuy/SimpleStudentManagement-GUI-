@@ -16,10 +16,6 @@ import model.Account;
  */
 public class LoginWindow extends javax.swing.JFrame {
 
-    private final ConnectDB cn = new ConnectDB();
-    private Connection conn = null;
-    private PreparedStatement ps;
-
     public LoginWindow() {
         initComponents();
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/user.png")));
