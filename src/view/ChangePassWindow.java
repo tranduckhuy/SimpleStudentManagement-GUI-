@@ -1,15 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package GUI;
+package view;
 
-import java.sql.*;
+import dao.LoginDAO;
+import dao.UpdateAccountDAO;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import model.Account;
 
 public class ChangePassWindow extends javax.swing.JFrame {
 
@@ -21,21 +19,21 @@ public class ChangePassWindow extends javax.swing.JFrame {
         addPlaceHolderStyle(tfNewPass);
         addPlaceHolderStyle(tfConfirmPass);
     }
-    
-    private void addPlaceHolderStyle(JTextField textField){
+
+    private void addPlaceHolderStyle(JTextField textField) {
         Font font = textField.getFont();
         font = font.deriveFont(Font.ITALIC);
         textField.setFont(font);
-        textField.setForeground(Color.gray);              
+        textField.setForeground(Color.gray);
     }
-    
-    private void removePlaceHolderStyle(JTextField textField){
+
+    private void removePlaceHolderStyle(JTextField textField) {
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN);
         textField.setFont(font);
-        textField.setForeground(Color.black);              
+        textField.setForeground(Color.black);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -130,7 +128,6 @@ public class ChangePassWindow extends javax.swing.JFrame {
         getContentPane().add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, -1));
 
         tfConfirmPass.setText("Confirm Password");
-        tfConfirmPass.setEchoChar('\u0000');
         tfConfirmPass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tfConfirmPassFocusGained(evt);
@@ -142,7 +139,6 @@ public class ChangePassWindow extends javax.swing.JFrame {
         getContentPane().add(tfConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 180, -1));
 
         tfPass.setText("Password");
-        tfPass.setEchoChar('\u0000');
         tfPass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tfPassFocusGained(evt);
@@ -154,7 +150,6 @@ public class ChangePassWindow extends javax.swing.JFrame {
         getContentPane().add(tfPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 180, -1));
 
         tfNewPass.setText("New Password");
-        tfNewPass.setEchoChar('\u0000');
         tfNewPass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tfNewPassFocusGained(evt);
@@ -173,7 +168,7 @@ public class ChangePassWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUserFocusGained
-        if(tfUser.getText().equals("Username")){
+        if (tfUser.getText().equals("Username")) {
             tfUser.setText(null);
             tfUser.requestFocus();
             removePlaceHolderStyle(tfUser);
@@ -181,14 +176,14 @@ public class ChangePassWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfUserFocusGained
 
     private void tfUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUserFocusLost
-        if(tfUser.getText().length() == 0){
+        if (tfUser.getText().length() == 0) {
             addPlaceHolderStyle(tfUser);
             tfUser.setText("Username");
         }
     }//GEN-LAST:event_tfUserFocusLost
 
     private void tfPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPassFocusGained
-        if(String.valueOf(tfPass.getPassword()).equals("Password")){
+        if (String.valueOf(tfPass.getPassword()).equals("Password")) {
             tfPass.setText(null);
             tfPass.requestFocus();
             tfPass.setEchoChar('*');
@@ -197,7 +192,7 @@ public class ChangePassWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPassFocusGained
 
     private void tfPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPassFocusLost
-        if(String.valueOf(tfPass.getPassword()).length() == 0){
+        if (String.valueOf(tfPass.getPassword()).length() == 0) {
             addPlaceHolderStyle(tfPass);
             tfPass.setText("Password");
             tfPass.setEchoChar('\u0000');
@@ -209,7 +204,7 @@ public class ChangePassWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void tfConfirmPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfConfirmPassFocusLost
-        if(String.valueOf(tfConfirmPass.getPassword()).length() == 0){
+        if (String.valueOf(tfConfirmPass.getPassword()).length() == 0) {
             addPlaceHolderStyle(tfConfirmPass);
             tfConfirmPass.setText("Confirm Password");
             tfConfirmPass.setEchoChar('\u0000');
@@ -217,7 +212,7 @@ public class ChangePassWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfConfirmPassFocusLost
 
     private void tfConfirmPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfConfirmPassFocusGained
-        if(String.valueOf(tfConfirmPass.getPassword()).equals("Confirm Password")){
+        if (String.valueOf(tfConfirmPass.getPassword()).equals("Confirm Password")) {
             tfConfirmPass.setText(null);
             tfConfirmPass.requestFocus();
             tfConfirmPass.setEchoChar('*');
@@ -226,7 +221,7 @@ public class ChangePassWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfConfirmPassFocusGained
 
     private void tfNewPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfNewPassFocusLost
-        if(String.valueOf(tfNewPass.getPassword()).length() == 0){
+        if (String.valueOf(tfNewPass.getPassword()).length() == 0) {
             addPlaceHolderStyle(tfNewPass);
             tfNewPass.setText("New Password");
             tfNewPass.setEchoChar('\u0000');
@@ -234,7 +229,7 @@ public class ChangePassWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNewPassFocusLost
 
     private void tfNewPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfNewPassFocusGained
-        if(String.valueOf(tfNewPass.getPassword()).equals("New Password")){
+        if (String.valueOf(tfNewPass.getPassword()).equals("New Password")) {
             tfNewPass.setText(null);
             tfNewPass.requestFocus();
             tfNewPass.setEchoChar('*');
@@ -247,49 +242,36 @@ public class ChangePassWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBtnActionPerformed
 
     private void changeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeBtnActionPerformed
-        if(tfUser.getText().equals("Username") || String.valueOf(tfPass.getPassword()).equals("Password") 
-                || String.valueOf(tfNewPass.getPassword()).equals("New Password")
-                || String.valueOf(tfConfirmPass.getPassword()).equals("Confirm Password")){
+        String username = tfUser.getText();
+        String password = String.valueOf(tfPass.getPassword());
+        String newPass = String.valueOf(tfNewPass.getPassword());
+        String confirmPass = String.valueOf(tfConfirmPass.getPassword());
+        if (username.equals("Username") || password.equals("Password")
+                || newPass.equals("New Password") || confirmPass.equals("Confirm Password")) {
             JOptionPane.showMessageDialog(null, "Information cannot be left blank");
-        }else{
-            try{
-                ConnectDB cn = new ConnectDB();
-                Connection conn = cn.getConnection();            
-                if(String.valueOf(tfNewPass.getPassword()).equals(String.valueOf(tfConfirmPass.getPassword()))){
-                    if(String.valueOf(tfNewPass.getPassword()).length() > 4){
-                        String query = "SELECT * FROM user WHERE username = ? and password = ?";
-                        PreparedStatement ps = conn.prepareStatement(query);
-                        ps.setString(1, tfUser.getText());
-                        ps.setString(2, String.valueOf(tfPass.getPassword()));
-                        ResultSet rs = ps.executeQuery();
-                        if(rs.next()){
-                            query = "UPDATE user SET password = ? WHERE username = ?";
-                            ps = conn.prepareStatement(query);
-                            ps.setString(1, String.valueOf(tfNewPass.getPassword()));
-                            ps.setString(2, tfUser.getText());
-                            ps.executeUpdate();
-                            JOptionPane.showMessageDialog(null, "Change password successfully");
-                            this.dispose();
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Username or password is incorrect");
-                        }
-                    }else{
-                        JOptionPane.showMessageDialog(null, 
-                                "Password must not be less than 5 characters", 
-                                "Warning", 
-                                JOptionPane.WARNING_MESSAGE);
-                    }
-                    
-                }else{
-                    JOptionPane.showMessageDialog(null, "New password and confirm password do not match");
-                }                      
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null, e);
-            }
+            return;
         }
-        
-    }//GEN-LAST:event_changeBtnActionPerformed
+        try {
+            if (newPass.equals(confirmPass) && newPass.length() > 4) {
+                LoginDAO ld = new LoginDAO();
+                Account a = (Account) ld.checkLogin(username, password);
+                if (a != null) {
+                    UpdateAccountDAO ud = new UpdateAccountDAO();
+                    ud.updateAccount(username, newPass);
+                    JOptionPane.showMessageDialog(null, "Change password successfully");
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Username or password is incorrect");
+                }
 
+            } else {
+                JOptionPane.showMessageDialog(null, "New password and confirm password do not match (Password length > 4)");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_changeBtnActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

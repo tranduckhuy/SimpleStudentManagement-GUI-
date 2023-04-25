@@ -1,14 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package GUI;
+
+package view;
+
+import dao.ConnectDB;
+import dao.LoginDAO;
 import java.sql.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import model.Account;
 
 /**
  *
@@ -19,7 +19,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private final ConnectDB cn = new ConnectDB();
     private Connection conn = null;
     private PreparedStatement ps;
-    
+
     public LoginWindow() {
         initComponents();
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/user.png")));
@@ -27,21 +27,21 @@ public class LoginWindow extends javax.swing.JFrame {
         addPlaceHolderStyle(tfPass);
     }
 
-    private void addPlaceHolderStyle(JTextField textField){
-            Font font = textField.getFont();
-            font = font.deriveFont(Font.ITALIC);
-            textField.setFont(font);
-            textField.setForeground(Color.gray);
-      
+    private void addPlaceHolderStyle(JTextField textField) {
+        Font font = textField.getFont();
+        font = font.deriveFont(Font.ITALIC);
+        textField.setFont(font);
+        textField.setForeground(Color.gray);
+
     }
-    
-    private void removePlaceHolderStyle(JTextField textField){
-            Font font = textField.getFont();
-            font = font.deriveFont(Font.PLAIN);
-            textField.setFont(font);
-            textField.setForeground(Color.black);
+
+    private void removePlaceHolderStyle(JTextField textField) {
+        Font font = textField.getFont();
+        font = font.deriveFont(Font.PLAIN);
+        textField.setFont(font);
+        textField.setForeground(Color.black);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,7 +101,6 @@ public class LoginWindow extends javax.swing.JFrame {
 
         tfPass.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         tfPass.setText("Password");
-        tfPass.setEchoChar('\u0000');
         tfPass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tfPassFocusGained(evt);
@@ -162,52 +161,51 @@ public class LoginWindow extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+
+
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        try{
-            conn = (Connection) cn.getConnection();
-            String query = "SELECT * FROM user WHERE username = ? and password = ?";
-            ps = conn.prepareStatement(query);
-            ps.setString(1, tfUser.getText());
-            ps.setString(2, String.valueOf(tfPass.getPassword()));
-            ResultSet rs = ps.executeQuery();
-            if(tfUser.getText().equals("Username") || String.valueOf(tfPass.getPassword()).equals("Password")){
-                JOptionPane.showMessageDialog(null, "Username or password cannot be empty");
-            }
-            if(rs.next()){
+        String username = tfUser.getText();
+        String password = String.valueOf(tfPass.getPassword());
+        if (username.equals("Username") || password.equals("Password")) {
+            JOptionPane.showMessageDialog(null, "Username or password cannot be empty");
+            return;
+        }
+        try {
+            LoginDAO ld = new LoginDAO();
+            Account a = (Account) ld.checkLogin(username, password);
+            if (a != null) {
                 new MainWindow().setVisible(true);
                 dispose();
-            }else{
-                if(!(tfUser.getText().equals("Username") || String.valueOf(tfPass.getPassword()).equals("Password"))){
-                    JOptionPane.showMessageDialog(null, 
-                        "Username or password is incorrect", 
-                        "Announcement", 
-                        JOptionPane.WARNING_MESSAGE);
+            } else {
+                {
+                    JOptionPane.showMessageDialog(null,
+                            "Username or password is incorrect",
+                            "Announcement",
+                            JOptionPane.WARNING_MESSAGE);
                 }
             }
-        }catch(Exception e){
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
+
     }//GEN-LAST:event_loginBtnActionPerformed
-    
+
     private void changePwLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePwLabelMouseClicked
         new ChangePassWindow().setVisible(true);
     }//GEN-LAST:event_changePwLabelMouseClicked
 
     private void tfUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUserFocusGained
-        if(tfUser.getText().equals("Username")){
+        if (tfUser.getText().equals("Username")) {
             tfUser.setText(null);
             tfUser.requestFocus();
             //remove placeholder style
             removePlaceHolderStyle(tfUser);
         }
-        
+
     }//GEN-LAST:event_tfUserFocusGained
 
     private void tfPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPassFocusGained
-        if(String.valueOf(tfPass.getPassword()).equals("Password")){
+        if (String.valueOf(tfPass.getPassword()).equals("Password")) {
             tfPass.setText(null);
             tfPass.requestFocus();
             tfPass.setEchoChar('*');
@@ -217,20 +215,20 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPassFocusGained
 
     private void tfUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfUserFocusLost
-        if(tfUser.getText().length() == 0){
+        if (tfUser.getText().length() == 0) {
             //add placeholder style
             addPlaceHolderStyle(tfUser);
             tfUser.setText("Username");
-       }
+        }
     }//GEN-LAST:event_tfUserFocusLost
 
     private void tfPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfPassFocusLost
-         if(String.valueOf(tfPass.getPassword()).length() == 0){
+        if (String.valueOf(tfPass.getPassword()).length() == 0) {
             //add placeholder style
             addPlaceHolderStyle(tfPass);
             tfPass.setText("Password");
             tfPass.setEchoChar('\u0000');
-       }
+        }
     }//GEN-LAST:event_tfPassFocusLost
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
@@ -238,29 +236,28 @@ public class LoginWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void tfPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPassKeyReleased
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            try{
-                conn = (Connection) cn.getConnection();
-                String query = "SELECT * FROM user WHERE username = ? and password = ?";
-                ps = conn.prepareStatement(query);
-                ps.setString(1, tfUser.getText());
-                ps.setString(2, String.valueOf(tfPass.getPassword()));
-                ResultSet rs = ps.executeQuery();
-                if(tfUser.getText().equals("Username") || String.valueOf(tfPass.getPassword()).equals("Password")){
-                    JOptionPane.showMessageDialog(null, "Username or password cannot be empty");
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String username = tfUser.getText();
+            String password = String.valueOf(tfPass.getPassword());
+            if (username.equals("Username") || password.equals("Password")) {
+                JOptionPane.showMessageDialog(null, "Username or password cannot be empty");
+                return;
             }
-                if(rs.next()){
+            try {
+                LoginDAO ld = new LoginDAO();
+                Account a = (Account) ld.checkLogin(username, password);
+                if (a != null) {
                     new MainWindow().setVisible(true);
                     dispose();
-                }else{
-                    if(!(tfUser.getText().equals("Username") || String.valueOf(tfPass.getPassword()).equals("Password"))){
-                        JOptionPane.showMessageDialog(null, 
-                            "Username or password is incorrect", 
-                            "Announcement", 
-                            JOptionPane.WARNING_MESSAGE);
+                } else {
+                    {
+                        JOptionPane.showMessageDialog(null,
+                                "Username or password is incorrect",
+                                "Announcement",
+                                JOptionPane.WARNING_MESSAGE);
                     }
                 }
-            }catch(Exception e){
+            } catch (HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }

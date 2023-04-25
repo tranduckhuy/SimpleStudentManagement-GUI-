@@ -1,6 +1,7 @@
 
-package GUI;
+package view;
 
+import dao.ConnectDB;
 import java.sql.*;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
